@@ -17,6 +17,13 @@ app.get('/api/produtos', (req, res) =>{
     res.json(produtos);
 });
 
+app.get('/api/produtos/:id', (req, res) => {
+    const id = Number(req.params.id);
+    const produto = produtos.find((p) => p.id === id);
+
+    res.json(produto);
+});
+
 app.post('/api/produtos', (req,res) =>{
     const { nome, preco } = req.body;
 
